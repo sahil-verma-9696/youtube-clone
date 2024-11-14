@@ -1,36 +1,20 @@
 import React from "react";
-import { url } from "../utils/constant";
+import { useFetchHomeVideos } from "../hooks/useFetchHomeVideos";
+import { useSelector } from "react-redux";
+import VideoCard from "../components/home/VideoCard";
 const Home = () => {
-  console.log(url);
+  useFetchHomeVideos();
+  const homeVideos = useSelector(store=>store.videos?.homeVideos)
   return (
     <div
-      className="w-full h-[calc(100vh-62px)] p-2 gap-2 overflow-y-scroll bg-purple-200 grid 
+      className="w-full h-[calc(100vh-62px)] p-2 gap-2 overflow-y-scroll  grid 
       sm:grid-cols-3 sm:grid-rows-[repeat(10,400px)] 
       "
     >
-      <div className="bg-purple-300 rounded-lg min-h-40">1</div>
-      <div className="bg-purple-300 rounded-lg min-h-40">1</div>
-      <div className="bg-purple-300 rounded-lg min-h-40">1</div>
-      <div className="bg-purple-300 rounded-lg min-h-40">1</div>
-      <div className="bg-purple-300 rounded-lg min-h-40">1</div>
-      <div className="bg-purple-300 rounded-lg min-h-40">1</div>
-      <div className="bg-purple-300 rounded-lg min-h-40">1</div>
-      <div className="bg-purple-300 rounded-lg min-h-40">1</div>
-      <div className="bg-purple-300 rounded-lg min-h-40">1</div>
-      <div className="bg-purple-300 rounded-lg min-h-40">1</div>
-      <div className="bg-purple-300 rounded-lg min-h-40">1</div>
-      <div className="bg-purple-300 rounded-lg min-h-40">1</div>
-      <div className="bg-purple-300 rounded-lg min-h-40">1</div>
-      <div className="bg-purple-300 rounded-lg min-h-40">1</div>
-      <div className="bg-purple-300 rounded-lg min-h-40">1</div>
-      <div className="bg-purple-300 rounded-lg min-h-40">1</div>
-      <div className="bg-purple-300 rounded-lg min-h-40">1</div>
-      <div className="bg-purple-300 rounded-lg min-h-40">1</div>
-      <div className="bg-purple-300 rounded-lg min-h-40">1</div>
-      <div className="bg-purple-300 rounded-lg min-h-40">1</div>
-      <div className="bg-purple-300 rounded-lg min-h-40">1</div>
-      <div className="bg-purple-300 rounded-lg min-h-40">1</div>
-      <div className="bg-purple-300 rounded-lg min-h-40">1</div>
+      {
+        homeVideos?.map(data=><VideoCard key={data.id} data={data}/>)
+      }
+      
     </div>
   );
 };

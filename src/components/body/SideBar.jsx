@@ -21,9 +21,34 @@ const SideBar = () => {
         >
           <div
             className="justify-items-center
-            sm:row-start-2"
+            sm:row-start-1"
           >
+            <div className="sm:hidden">
+              <FontAwesomeIcon size="xl" icon={faHouseUser} />
+            </div>
+            <div className="hidden sm:block">
+              <FontAwesomeIcon size="lg" icon={faHouseUser} />
+            </div>
+          </div>
+
+          <span
+            className="hidden 
+            sm:block "
+          >
+            Home
+          </span>
+        </li>
+
+        <li
+          className="cursor-pointer
+          sm:flex sm:justify-between sm:gap-6
+          sm:w-32 sm:px-2 sm:p-1 sm:rounded-md sm:hover:bg-purple-200"
+        >
+          <div className="sm:hidden">
             <FontAwesomeIcon size="xl" icon={faListUl} />
+          </div>
+          <div className="hidden sm:block">
+            <FontAwesomeIcon size="lg" icon={faListUl} />
           </div>
 
           <span
@@ -41,43 +66,23 @@ const SideBar = () => {
         >
           <div
             className="justify-items-center
-            sm:row-start-1"
-          >
-            <div>
-              <FontAwesomeIcon size="xl" icon={faHouseUser} />
-            </div>
-          </div>
-
-          <span
-            className="hidden 
-            sm:block "
-          >
-            Home
-          </span>
-        </li>
-
-        <li
-          className="cursor-pointer
-          sm:flex sm:justify-between sm:gap-6
-          sm:w-32 sm:px-2 sm:p-1 sm:rounded-md sm:hover:bg-purple-200"
-        >
-          <div
-            className="justify-items-center
             sm:row-start-3"
           >
-            <div>
+            <div className="sm:hidden">
               <FontAwesomeIcon size="xl" icon={faNoteSticky} />
+            </div>
+            <div className="hidden sm:block">
+              <FontAwesomeIcon size="lg" icon={faNoteSticky} />
             </div>
           </div>
 
           <span
-            className="hidden
+            className="hidden text-md 
             sm:block sm:row-start-3 sm:col-start-2"
           >
             Notes
           </span>
         </li>
-
       </ul>
     </aside>
   );

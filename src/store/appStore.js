@@ -3,7 +3,7 @@ import videoSlice from './videoSlice'
 import appSlice from './appStates'
 export const appStore = configureStore({
     reducer: {
-        video: videoSlice,
+        videos: videoSlice,
         app: appSlice
     }
 })
