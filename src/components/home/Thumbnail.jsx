@@ -11,7 +11,7 @@ const Thumbnail = ({ url, alt, width, height }) => {
     >
       {inView ? (
         <img
-          className="object-cover w-full h-full"
+          className={`object-cover w-full h-[${height}px]`}
           src={url}
           alt={alt}
           loading="lazy" // Native lazy loading

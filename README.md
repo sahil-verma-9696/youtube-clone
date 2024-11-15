@@ -11,4 +11,5 @@
     - Enable lazy loading 🔥 only load view port images other images load while scrolling
       - use : react-intersection-observer (react library) 🔥
       -       loading="lazy" ( html attribute ) 🔥
-    - 
+
+    - add view count, publish time, "..." in video title in videoCard Component
