@@ -4,8 +4,10 @@ import { logo_text, Navbar_search_placeholder } from "../../utils/appText";
 import TextLogo from "./TextLogo";
 import SmallCircleShim from "../../shimmers/navbar/SmallCircleShim";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faSearch } from "@fortawesome/free-solid-svg-icons";
 import { faUser } from "@fortawesome/free-regular-svg-icons";
+import { Link } from "react-router-dom";
+import { toggleSlideBar } from "../../store/appStates";
 
 const Navbar = () => {
   const dispatch = useDispatch();
@@ -14,8 +16,22 @@ const Navbar = () => {
       className="Navbar flex justify-between p-2 border-b-2 border-purple-300 sticky top-0  
       sm:px-7"
     >
-      <div className="Navbar-left flex gap-2 items-center">
-        <TextLogo children={logo_text} />
+      <div className="Navbar-left flex gap-4 items-center ml-3">
+        <div
+        className="cursor-pointer"
+          onClick={() => {
+            dispatch(toggleSlideBar());
+          }}
+        >
+          <FontAwesomeIcon
+            size="lg"
+            style={{ color: "#7E22CE" }}
+            icon={faBars}
+          />
+        </div>
+        <Link to={"/"}>
+          <TextLogo children={logo_text} />
+        </Link>
       </div>
       <div
         className="Navbar-center hidden 

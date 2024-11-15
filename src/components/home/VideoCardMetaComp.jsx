@@ -37,7 +37,7 @@ const VideoCardMetaComp = ({ title, channelTitle, statistics,publishedAt }) => {
 
   return (
     <aside className="flex h-fit justify-between gap-2 mt-2 ">
-      <SmallCircleShim />
+      <SmallCircleShim children={channelTitle[0]} />
       <div className="relative size-full bg-purple-500">
         <span className="absolute w-full left-0">
           <h3 className="text-sm font-semibold">

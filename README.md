@@ -13,3 +13,5 @@
       -       loading="lazy" ( html attribute ) 🔥
 
     - add view count, publish time, "..." in video title in videoCard Component
+    - create video page and add some layout
+    - fixed side bar according to video page + hamburger with toggle side bar.
