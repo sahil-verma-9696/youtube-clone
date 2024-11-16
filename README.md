@@ -15,3 +15,9 @@
     - add view count, publish time, "..." in video title in videoCard Component
     - create video page and add some layout
     - fixed side bar according to video page + hamburger with toggle side bar.
+
+    - + Videoplayer
+    - + Note layout
+    - + video page
+    - + 50 result on home page
+    - + on reload home content refresh

@@ -20,8 +20,8 @@ const VideoCard = ({ data }) => {
   } = data;
   if (!data) return <VideoCardShim />;
   return (
-    <div className="rounded-lg min-h-40  relative cursor-pointer">
-      <Link to={`/video/${id}`}>
+    <div className="rounded-lg h-[230px]  relative cursor-pointer">
+      <Link to={`/video/${id}`} className={`h-[${230}px]`}>
         <Thumbnail url={url} alt={title} width={width} height={230} />
         <VideoCardMetaComp
           title={title}

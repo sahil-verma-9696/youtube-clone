@@ -8,7 +8,7 @@ const Home = () => {
   return (
     <div
       className=" h-[calc(100vh-62px)] p-2 gap-2 overflow-y-scroll  grid 
-      sm:w-[calc(100%-240px)] sm:grid-cols-3 sm:grid-rows-[repeat(10,400px)] sm:relative sm:left-48 
+      sm:w-[calc(100%-240px)] sm:grid-cols-3 sm:grid-rows-[repeat(17,400px)] sm:relative sm:left-48 
       "
     >
       {
