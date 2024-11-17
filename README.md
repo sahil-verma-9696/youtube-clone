@@ -22,5 +22,8 @@
     - + 50 result on home page
     - + on reload home content refresh
 
+    - # Redux-persist && redux-persist-transform-filter
 
     - + redux-persist && + redux-persist-transform-filter for storing state in local storage 🔥🔥🔥🔥 
+    - A non-serializable value was detected in an action, in the path: `register`. 
+    - + To resolve this, configure the Redux middleware to ignore specific redux-persist action types that include non-serializable values:

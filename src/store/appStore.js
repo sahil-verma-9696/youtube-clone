@@ -5,6 +5,14 @@ import { createFilter } from "redux-persist-transform-filter";
 import videoSlice from "./videoSlice";
 import appSlice from "./appStates";
 import noteSlice from "./noteStlice";
+import {
+  FLUSH,
+  REHYDRATE,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER,
+} from "redux-persist/es/constants";
 
 // Create a filter for the object to persist inside videoSlice
 const videoFilter = createFilter("videos", ["nowPlaying"]); // Replace 'specificObject' with the property name you want to persist
@@ -26,8 +34,16 @@ const rootReducer = combineReducers({
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 // Create the store
+// Configure store with middleware
 export const appStore = configureStore({
   reducer: persistedReducer,
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        // Ignore redux-persist action types
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    }),
 });
 
 export const persistor = persistStore(appStore);
