@@ -1,6 +1,9 @@
 import React from "react";
+import { useSelector } from "react-redux";
 
 const NoteCard = () => {
+  const notes = useSelector(store=>store.notes)
+  console.log(notes)
   const content =
     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur magnam blanditiis possimus esse, dolore non expedita veniam, reprehenderit hello optio soluta! Quibusdam, dignissimos quia culpa fuga expedita cumque ipsa sapiente nihil illum architecto quas.";
   return (

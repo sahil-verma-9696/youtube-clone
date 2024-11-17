@@ -3,9 +3,12 @@ import VideoCardShim from "../../shimmers/Home/VideoCardShim";
 import Thumbnail from "./Thumbnail";
 import VideoCardMetaComp from "./VideoCardMetaComp";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addNowPlaying } from "../../store/videoSlice";
 
 const VideoCard = ({ data }) => {
-  // console.log(data);
+  const dispatch = useDispatch();
+
   const {
     id,
     snippet: {
@@ -19,8 +22,10 @@ const VideoCard = ({ data }) => {
     statistics,
   } = data;
   if (!data) return <VideoCardShim />;
+
   return (
-    <div className="rounded-lg h-[230px]  relative cursor-pointer">
+    <div onClick={()=>{dispatch(addNowPlaying(data))}}
+     className="rounded-lg h-[230px]  relative cursor-pointer">
       <Link to={`/video/${id}`} className={`h-[${230}px]`}>
         <Thumbnail url={url} alt={title} width={width} height={230} />
         <VideoCardMetaComp

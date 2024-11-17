@@ -4,9 +4,7 @@ import { useParams } from "react-router-dom";
 
 const NowPlaying = () => {
   const { id: videoID } = useParams();
-  const currentVideo = useSelector((store) => store.videos?.homeVideos)?.filter(
-    (videos) => videos.id === videoID
-  );
+  const currentVideo = useSelector((store) => store.videos?.nowPlaying)
   console.log(currentVideo);
   return (
     <div className="w-full">

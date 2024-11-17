@@ -1,15 +1,14 @@
-import { Provider } from 'react-redux';
-import React, { Suspense } from 'react';
+import { Provider } from "react-redux";
+import React, { Suspense } from "react";
 
-import Home from './pages/Home';
-import {
-  createBrowserRouter,
-} from "react-router-dom";
-import { appStore } from './store/appStore';
-import Body from './components/body/Body';
+import Home from "./pages/Home";
+import { createBrowserRouter } from "react-router-dom";
+import { appStore, persistor } from "./store/appStore";
+import Body from "./components/body/Body";
+import { PersistGate } from "redux-persist/integration/react";
 
 // Lazy load the Video component
-const Video = React.lazy(() => import('./pages/Video'));
+const Video = React.lazy(() => import("./pages/Video"));
 
 export const router = createBrowserRouter([
   {
@@ -18,7 +17,7 @@ export const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Home />
+        element: <Home />,
       },
       {
         path: "/video/:id",
@@ -26,17 +25,20 @@ export const router = createBrowserRouter([
           <Suspense fallback={<div>Loading...</div>}>
             <Video />
           </Suspense>
-        )
-      }
-    ]
+        ),
+      },
+    ],
   },
 ]);
 
 function App() {
   return (
-    <div className='App size-full'>
+    <div className="App size-full">
       <Provider store={appStore}>
-        <Body />
+        {/* PersistGate delays rendering until rehydration is complete */}
+        <PersistGate loading={<div>Loading...</div>} persistor={persistor}>
+          <Body />
+        </PersistGate>
       </Provider>
     </div>
   );
