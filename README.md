@@ -21,3 +21,6 @@
     - + video page
     - + 50 result on home page
     - + on reload home content refresh
+
+
+    - + redux-persist && + redux-persist-transform-filter for storing state in local storage 🔥🔥🔥🔥 
