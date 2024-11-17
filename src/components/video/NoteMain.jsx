@@ -1,7 +1,10 @@
 import React from "react";
 import NoteCard from "./NoteCard";
+import { useSelector } from "react-redux";
+import NoNoteFound from "./NoNoteFound";
 
 const NoteMain = () => {
+  const notes = useSelector(store=>store.notes)
   return (
     <div className="p-2">
       <ul>
@@ -9,9 +12,10 @@ const NoteMain = () => {
       </ul>
 
       <div className="mt-2 flex flex-col gap-4 h-48  overflow-y-scroll">
-        <NoteCard />
-        <NoteCard />
-        <NoteCard />
+  
+        {
+          notes.length === 0 ? <NoNoteFound/>:notes?.map(note=><NoteCard key={note.note_id} note={note}/>)
+        }
       </div>
     </div>
   );

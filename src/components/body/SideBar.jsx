@@ -13,8 +13,8 @@ const SideBar = () => {
   return ( window.innerWidth <= 640 || isHome || sideBar) && (
    
     <aside
-      className={`z-10 fixed bottom-0 w-full py-1 bg-white border-t-2 border-purple-300  text-purple-500
-        sm:block sm:fixed sm:top-[61px] sm:border-r-2 sm:px-4 sm:w-fit sm:border-t-0`}
+      className={`z-10 fixed bottom-0 w-full py-1 bg-white  text-purple-500
+        sm:block sm:fixed sm:top-[61px]  sm:px-4 sm:w-fit `}
     > 
       <ul
         className="flex justify-between px-3

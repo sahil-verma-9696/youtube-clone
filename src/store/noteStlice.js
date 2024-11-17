@@ -2,38 +2,49 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const noteSlice = createSlice({
   name: "notes",
-  initialState: [
-    {
-      note_id: "note1",
-      video_id: "v001",
-      user_id: "user001",
-      title: "covered basic SQL syntax",
-      content: "cover the basic concept such as select, create, where etc.",
-      createdAt: "2024-11-16T10:30:00.000Z",
-      timeStamp: 120,
-    },
-    {
-      note_id: "note2",
-      video_id: "v002",
-      user_id: "user002",
-      title: "covered advanced SQL joins",
-      content: "Details about inner, outer, and self joins",
-      createdAt: "2024-11-16T10:32:00.000Z",
-      timeStamp: 300,
-    },
-  ],
+  initialState: [], // State is a list of notes
 
   reducers: {
-    createNote: (state, action) => {
+    // Add a new empty note
+    addEmptyNote: (state,action) => {
+      const {video_id} = action.payload;
       const newNote = {
-        ...action.payload,
-        note_id: `note${state.notes.length + 1}`, // Generate a new unique note_id
-        createdAt: new Date().toISOString(), // Add current timestamp
+        note_id: `note${state.length + 1}`, // Generate unique id
+        video_id: video_id || "",
+        user_id: "",
+        title: "",
+        content: "",
+        createdAt: new Date().toISOString(),
+        timeStamp: 0,
+        isEditing: true, // Automatically enter edit mode for a new note
       };
-      state.notes.push(newNote); // Add the new note to the array
+      state.unshift(newNote);
+    },
+
+    // Update fields of an existing note
+    updateNote: (state, action) => {
+      const { note_id, ...updatedFields } = action.payload;
+      const note = state.find((n) => n.note_id === note_id);
+      if (note) {
+        Object.assign(note, updatedFields);
+      }
+    },
+
+    // Delete a note
+    deleteNote: (state, action) => {
+      return state.filter((note) => note.note_id !== action.payload.note_id);
+    },
+
+    // Toggle edit mode for a note
+    toggleEditMode: (state, action) => {
+      const note = state.find((n) => n.note_id === action.payload.note_id);
+      if (note) {
+        note.isEditing = !note.isEditing;
+      }
     },
   },
 });
 
-export const { createNote } = noteSlice.actions;
+export const { addEmptyNote, updateNote, deleteNote, toggleEditMode } =
+  noteSlice.actions;
 export default noteSlice.reducer;

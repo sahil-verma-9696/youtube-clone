@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 const NowPlaying = () => {
   const { id: videoID } = useParams();
   const currentVideo = useSelector((store) => store.videos?.nowPlaying)
-  console.log(currentVideo);
+  // console.log(currentVideo);
   return (
     <div className="w-full">
       <div className="w-[95%] h-[588px] bg-purple-200 mt-4 m-auto rounded-lg overflow-hidden">

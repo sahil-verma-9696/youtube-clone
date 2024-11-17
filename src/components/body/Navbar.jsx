@@ -13,7 +13,7 @@ const Navbar = () => {
   const dispatch = useDispatch();
   return (
     <nav
-      className="Navbar flex justify-between p-2 border-b-2 border-purple-300 sticky top-0  
+      className="Navbar flex justify-between p-2 sticky top-0  
       sm:px-7"
     >
       <div className="Navbar-left flex gap-4 items-center ml-3">

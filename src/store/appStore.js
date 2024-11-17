@@ -22,6 +22,7 @@ const persistConfig = {
   key: "root",
   storage,
   transforms: [videoFilter], // Apply the filter to selectively persist
+  blacklist: ["app","notes"], 
 };
 
 const rootReducer = combineReducers({
