@@ -15,7 +15,7 @@ export function useFetchHomeVideos() {
   const fetchVideos = useCallback(
     async (params) => {
       try {
-        const url = new URL(YT_BASE_URL);
+        const url = new URL(YT_BASE_URL+"videos");
         url.search = new URLSearchParams({
           ...params,
           key: YT_KEY,

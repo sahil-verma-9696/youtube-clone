@@ -1,60 +1,19 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react'
 
-const YouTubePlayer = () => {
-  const playerRef = useRef(null);
+const YouTubePlayer = ({videoID}) => {
+  return (
+    <div className="w-[95%] h-[588px] bg-purple-200 mt-4 m-auto rounded-lg overflow-hidden">
+        <iframe
+          className="size-full object-cover"
+          src={`https://www.youtube.com/embed/${videoID}?si=PTVik2RpAO1FdEVK`}
+          title="YouTube video player"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; web-share"
+          referrerPolicy="strict-origin-when-cross-origin"
+          allowFullScreen
+        ></iframe>
+      </div>
+  )
+}
 
-  useEffect(() => {
-    // 1. Load the YouTube IFrame Player API asynchronously
-    const tag = document.createElement('script');
-    tag.src = 'https://www.youtube.com/iframe_api';
-    const firstScriptTag = document.getElementsByTagName('script')[0];
-    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-    // 2. Define the API ready function
-    window.onYouTubeIframeAPIReady = () => {
-      playerRef.current = new window.YT.Player('player', {
-        
-        height: '390',
-        width: '640',
-        videoId: 'M7lc1UVf-VE',
-        playerVars: {
-          playsinline: 1,
-        },
-        events: {
-          onReady: onPlayerReady,
-          onStateChange: onPlayerStateChange,
-        },
-      });
-    };
-
-    // 3. Define event handlers
-    const onPlayerReady = (event) => {
-      event.target.playVideo();
-    };
-
-    const onPlayerStateChange = (event) => {
-      if (event.data === window.YT.PlayerState.PLAYING && !done.current) {
-        setTimeout(stopVideo, 6000);
-        done.current = true;
-      }
-    };
-
-    const stopVideo = () => {
-      playerRef.current.stopVideo();
-    };
-
-    const done = { current: false };
-
-    // Cleanup function to remove event handlers and script if needed
-    return () => {
-      if (playerRef.current) {
-        playerRef.current.destroy();
-      }
-      delete window.onYouTubeIframeAPIReady;
-    };
-  }, []);
-
-  return <div id="player"></div>;
-};
-
-export default YouTubePlayer;
+export default YouTubePlayer

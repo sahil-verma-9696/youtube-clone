@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { deleteNote, toggleEditMode, updateNote } from "../../store/noteStlice"; // Ensure correct import for updateNote
 import { timeAgo } from "./../../utils/utilityFun";
-import { useParams } from "react-router-dom";
 const NoteCard = ({ note }) => {
   
   const dispatch = useDispatch();

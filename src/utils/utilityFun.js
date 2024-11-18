@@ -6,6 +6,7 @@ export function formatCount(count) {
   }
   return count.toString();
 }
+
 export function timeAgo(date) {
   const now = new Date();
   const publishedDate = new Date(date);
@@ -28,4 +29,14 @@ export function timeAgo(date) {
     }
   }
   return "just now";
+}
+
+export function formatYouTubeDescription(description) {
+  // Replace newlines with <br /> for proper line breaks in HTML
+  return description.split('\n').map((line, index) => (
+    <span key={index}>
+      {line}
+      <br />
+    </span>
+  ));
 }

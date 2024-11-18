@@ -29,8 +29,7 @@
     - + To resolve this, configure the Redux middleware to ignore specific redux-persist action types that include non-serializable values:
 
 
-
-
     -  + newNote, + deleteNote , + editNote, + saveNote functionality complete
 
-    - now particular video note --continue
+    - now particular video note --✅ 
+    - search feature -- continue
